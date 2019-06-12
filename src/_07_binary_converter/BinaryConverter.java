@@ -1,7 +1,47 @@
 package _07_binary_converter;
 
-public class BinaryConverter {
-    String convert(String input) {
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+public class BinaryConverter implements ActionListener{
+   JFrame frame = new JFrame();
+   JPanel panel = new JPanel();
+   JTextField textField = new JTextField(30);
+   JButton button = new JButton("convert  stdtdrthsrth");
+   
+   public static void main(String[] args) {
+	new BinaryConverter().createUIC();
+
+   
+   
+   
+   
+   
+   }
+	void createUIC() {
+		frame.add(panel);
+		panel.add(button);
+		panel.add(textField);
+		frame.pack();
+		frame.setVisible(true);
+		button.addActionListener(this);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	String convert(String input) {
         if(input.length() != 8){
              JOptionPane.showMessageDialog(null, "Enter 8 bits, silly!!!");
              return "-";
@@ -20,4 +60,11 @@ public class BinaryConverter {
              return "-";
         }
    }
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		String input = textField.getText();
+		String convert = convert(input);
+		textField.setText(convert);
+	}
 }
